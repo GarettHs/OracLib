@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="584.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OracLib.LibraryController">
+   <children>
+      <Label fx:id="author" alignment="CENTER" layoutX="76.0" layoutY="358.0" prefHeight="15.0" prefWidth="225.0" text="Author: John Doe">
+         <font>
+            <Font name="Arial Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="description" layoutX="61.0" layoutY="373.0" prefHeight="121.0" prefWidth="258.0" text="Lorem ipsum dolor sit amet. Et voluptatem quibusdam At voluptatem incidunt est nesciunt odio sed similique dignissimos eos voluptas nostrum. Quo laboriosam nihil et voluptatem animi et fuga ipsum." textAlignment="JUSTIFY" wrapText="true" />
+      <Hyperlink fx:id="link" layoutX="122.0" layoutY="508.0" text="https://amz.run/6wXl" />
+      <Button fx:id="readButton" layoutX="146.0" layoutY="541.0" mnemonicParsing="false" onAction="#handlePDF" text="Read Now" />
+      <Text layoutX="152.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shop Now">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <Label fx:id="title" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="22.0" prefHeight="75.0" prefWidth="274.0" text="Book Title" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="bookImageView" fitHeight="259.0" fitWidth="196.0" layoutX="85.0" layoutY="88.0" pickOnBounds="true" />
+      <Button layoutX="312.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleFavoriteButton" text="★" textFill="#00c8ff" />
+   </children>
+</AnchorPane>

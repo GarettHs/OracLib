@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="575.0" prefWidth="895.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OracLib.AdminViewController">
+   <children>
+      <Label fx:id="adminLabel" layoutX="235.0" layoutY="26.0" text="Administrator View" />
+      <ImageView fitHeight="75.0" fitWidth="210.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/oraclib.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="TOP_CENTER" layoutX="746.0" layoutY="75.0" prefHeight="190.0" prefWidth="149.0">
+         <children>
+            <Label text="Book Options" />
+            <Button fx:id="addBookButton" mnemonicParsing="false" onAction="#handleAddBook" text="Add Book" />
+            <Button fx:id="editBookButton" mnemonicParsing="false" onAction="#handleEditBook" text="Edit Book Info" />
+            <Button fx:id="deleteBookButton" mnemonicParsing="false" onAction="#handleDeleteBook" text="Delete Book" />
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="618.0" layoutY="75.0" prefHeight="186.0" prefWidth="149.0">
+         <children>
+            <Label text="User Options" />
+            <Button fx:id="addUserButton" mnemonicParsing="false" onAction="#handleAddUser" text="Add User" />
+            <Button fx:id="editUserButton" mnemonicParsing="false" onAction="#handleEditUser" text="Edit User Info" />
+            <Button fx:id="deleteUserButton" mnemonicParsing="false" onAction="#handleDeleteUser" text="Delete User" />
+         </children>
+      </VBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="3.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" width="630.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="501.0" layoutX="628.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" width="3.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="499.0" layoutX="-2.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="5.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="3.0" layoutY="575.0" stroke="BLACK" strokeType="INSIDE" width="630.0" />
+      <Label alignment="CENTER" layoutY="81.0" prefHeight="25.0" prefWidth="200.0" text="Current Mode:" />
+      <Label fx:id="editLabel" alignment="CENTER" layoutY="98.0" prefHeight="25.0" prefWidth="200.0" text="No Mode Chosen" />
+      <AnchorPane fx:id="userAdminView" layoutY="80.0" prefHeight="493.0" prefWidth="630.0" visible="false">
+         <children>
+            <Button fx:id="saveChangesButton" layoutX="512.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleUserChanges" text="Save Changes" />
+            <TextField fx:id="usernameField" layoutX="229.0" layoutY="62.0" promptText="Enter a username" />
+            <TextField fx:id="passwordField" layoutX="229.0" layoutY="106.0" promptText="Enter a password" />
+            <TextField fx:id="bioField" alignment="TOP_LEFT" layoutX="229.0" layoutY="196.0" prefHeight="116.0" prefWidth="273.0" promptText="Enter a bio" />
+            <TextField fx:id="ageField" layoutX="229.0" layoutY="149.0" prefHeight="30.0" prefWidth="76.0" promptText="Enter age" />
+            <TextField fx:id="imageField" editable="false" layoutX="315.0" layoutY="149.0" prefHeight="30.0" prefWidth="186.0" promptText="Image (No input needed)" />
+            <ImageView fx:id="userImageView" fitHeight="116.0" fitWidth="116.0" layoutX="42.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/unknown.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="nameLabel" layoutX="53.0" layoutY="164.0" text="Username" />
+            <Label fx:id="ageLabel" layoutX="73.0" layoutY="194.0" text="Age: 00" />
+            <Label fx:id="bioLabel" alignment="TOP_LEFT" layoutX="29.0" layoutY="219.0" prefHeight="201.0" prefWidth="143.0" text="Lorem Ipsum" wrapText="true" />
+            <Label layoutX="229.0" layoutY="353.0" prefHeight="30.0" prefWidth="273.0" text="Reminder:" />
+            <Label alignment="TOP_LEFT" layoutX="229.0" layoutY="379.0" prefHeight="108.0" prefWidth="273.0" text="Your admin privileges are for monitoring/moderation purposes only.                                                     DO NOT abuse your power." wrapText="true" />
+            <Button fx:id="saveUserButton" layoutX="512.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleSaveUser" prefHeight="30.0" prefWidth="104.0" text="Save User" />
+            <Button fx:id="deleteUserNameButton" layoutX="512.0" layoutY="98.0" mnemonicParsing="false" onAction="#handleDelUser" prefHeight="30.0" prefWidth="104.0" text="Delete User" />
+            <Button fx:id="profilePicture" layoutX="512.0" layoutY="149.0" mnemonicParsing="false" onAction="#handleProfilePicture" prefHeight="30.0" prefWidth="104.0" text="Upload Pic" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="bookAdminView" layoutY="80.0" prefHeight="493.0" prefWidth="630.0">
+         <children>
+            <TextField fx:id="codeField" layoutX="229.0" layoutY="62.0" prefHeight="30.0" prefWidth="123.0" promptText="Enter book code" />
+            <TextField fx:id="titleField" layoutX="229.0" layoutY="105.0" promptText="Enter book title" />
+            <TextField fx:id="authorField" layoutX="229.0" layoutY="147.0" promptText="Enter book author" />
+            <TextField fx:id="yearField" layoutX="229.0" layoutY="189.0" promptText="Enter publication year" />
+            <TextField fx:id="genreField" layoutX="229.0" layoutY="232.0" promptText="Enter book genre" />
+            <TextField fx:id="linkField" layoutX="229.0" layoutY="276.0" promptText="Enter book link" />
+            <TextField fx:id="descriptionField" alignment="TOP_LEFT" layoutX="229.0" layoutY="318.0" prefHeight="160.0" prefWidth="383.0" promptText="Enter book description" />
+            <TextField fx:id="coverPhotoField" editable="false" layoutX="421.0" layoutY="147.0" promptText="Cover Photo (No Edit)" />
+            <TextField fx:id="pdfNameField" editable="false" layoutX="421.0" layoutY="232.0" promptText="PDF File Name (No Edit)" />
+            <Button fx:id="saveBookButton" layoutX="508.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleNewBook" prefHeight="30.0" prefWidth="104.0" text="Save Book" />
+            <Button fx:id="saveBookChanges" layoutX="508.0" layoutY="47.0" mnemonicParsing="false" onAction="#handleBookChanges" text="Save Changes" />
+            <Button fx:id="deleteBookCodeButton" layoutX="508.0" layoutY="90.0" mnemonicParsing="false" onAction="#handleDelBook" prefHeight="30.0" prefWidth="104.0" text="Delete Book" />
+            <ImageView fx:id="bookImageView" fitHeight="178.0" fitWidth="143.0" layoutX="45.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Untitled.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="bookNameLabel" alignment="TOP_CENTER" layoutX="7.0" layoutY="227.0" prefHeight="41.0" prefWidth="186.0" text="BookName" />
+            <Label fx:id="bookAuthorLabel" alignment="TOP_CENTER" layoutX="28.0" layoutY="264.0" prefHeight="25.0" prefWidth="143.0" text="Author" />
+            <Label fx:id="bookGenreLabel" alignment="TOP_CENTER" layoutX="28.0" layoutY="289.0" prefHeight="25.0" prefWidth="76.0" text="Genre" />
+            <Label fx:id="bookDescriptionLabel" alignment="TOP_LEFT" layoutX="28.0" layoutY="318.0" prefHeight="160.0" prefWidth="143.0" text="Lorem ipsum dolor sit amet." wrapText="true" />
+            <Label fx:id="bookYearLabel" alignment="TOP_CENTER" layoutX="104.0" layoutY="289.0" prefHeight="25.0" prefWidth="76.0" text="Year" />
+            <Button fx:id="coverPhotoButton" layoutX="436.0" layoutY="189.0" mnemonicParsing="false" onAction="#handleCoverPhoto" text="Upload Cover Photo" />
+            <Button fx:id="pdfFileButton" layoutX="424.0" layoutY="274.0" mnemonicParsing="false" onAction="#handlePDFFile" text="Upload PDF File of Book" />
+         </children>
+      </AnchorPane>
+      <TextField fx:id="bookInput" layoutX="457.0" layoutY="29.0" promptText="Enter book code" />
+      <TextField fx:id="userInput" layoutX="457.0" layoutY="29.0" promptText="Enter username" />
+      <Button fx:id="bookSearch" layoutX="641.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleBookSearch" text="Search Book" />
+      <Button fx:id="userSearch" layoutX="641.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleUserSearch" prefHeight="30.0" prefWidth="95.0" text="Search User" />
+      <Label layoutX="645.0" layoutY="289.0" prefHeight="25.0" prefWidth="228.0" text="Status Change:" />
+      <Label fx:id="statusChangeLabel" alignment="TOP_LEFT" layoutX="645.0" layoutY="308.0" prefHeight="85.0" prefWidth="228.0" text="No Status Change" wrapText="true" />
+      <Button fx:id="returnButton" layoutX="763.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleReturn" text="Return to Menu" />
+   </children>
+</AnchorPane>

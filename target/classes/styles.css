@@ -1,0 +1,81 @@
+.root {
+    -fx-background-size: cover;
+    -fx-background-image: url('img/WhiteBG.png');
+}
+
+AnchorPane {
+    -fx-background-color: transparent;
+}
+
+HBox, VBox {
+    -fx-background-color: transparent;
+    -fx-padding: 15px;
+    -fx-spacing: 15px;
+}
+
+Button, TextField {
+    -fx-font-size: 14px;
+}
+
+Label {
+    -fx-font-size: 16px;
+}
+
+ListView {
+    -fx-font-size: 14px;
+}
+
+#subTitle {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+#nameLabel {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+#bookNameLabel {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+#bookAuthorLabel, #bookGenreLabel, #bookYearLabel, #bookDescriptionLabel {
+    -fx-font-size: 12px;
+}
+
+#pictureView {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+}
+
+#profilePicButton {
+    -fx-font-size: 12px;
+}
+
+#nameButton {
+    -fx-font-size: 12px;
+}
+
+#bioButton {
+    -fx-font-size: 12px;
+}
+
+#ageButton {
+    -fx-font-size: 12px;
+}
+
+#editMode {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #23982e;
+}
+
+#adminLabel {
+    -fx-font-size: 24px;
+}
+
+#editLabel {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
