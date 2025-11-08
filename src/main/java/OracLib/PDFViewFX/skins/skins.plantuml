@@ -1,0 +1,271 @@
+@startuml
+
+title __SKINS's Class Diagram__\n
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin {
+              - EXECUTOR : Executor
+              - borderPane : BorderPane
+              - imageCache : Map<Integer, Image>
+              - pageSearchResults : ObservableList<PageSearchResult>
+              - pdfFilePages : ObservableList<Integer>
+              - requestedVValue : DoubleProperty
+              - searchResultListView : ListView<PageSearchResult>
+              - thumbnailListView : ListView<Integer>
+              + PDFViewSkin()
+              + showNextSearchResult()
+              + showPreviousSearchResult()
+              - createSearchNavigator()
+              - createToolBar()
+              - decreaseZoomFactor()
+              - increaseZoomFactor()
+              - maybeScrollTo()
+              - search()
+              - updateCurrentPageNumber()
+              - updateMaximumValue()
+              - updatePagesList()
+              - updateTotalPagesNumber()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin.MainAreaScrollPane {
+              - bouncer : Rectangle
+              - group : Group
+              - image : ObjectProperty<Image>
+              - imageView : ImageView
+              - pane : Pane
+              - parallel : ParallelTransition
+              - wrapper : StackPane
+              + MainAreaScrollPane()
+              # layoutImage()
+              - bounceSearchResult()
+              - fitAll()
+              - fitWidth()
+              - getImage()
+              - isPortrait()
+              - setImage()
+              - updateScrollbarPolicies()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin.PageSearchResult {
+              - items : List<SearchResult>
+              - pageNumber : int
+              - searchText : String
+              + PageSearchResult()
+              + compareTo()
+              + equals()
+              + getItems()
+              + getPageNumber()
+              + getSearchText()
+              + hashCode()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin.PagerService {
+              - up : boolean
+              + setUp()
+              # createTask()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin.PagerTask {
+              - up : boolean
+              + PagerTask()
+              # call()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin.PdfPageListCell {
+              - imageView : ImageView
+              - pageNumberLabel : Label
+              + PdfPageListCell()
+              # updateItem()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin.RenderService {
+              - page : IntegerProperty
+              - scale : FloatProperty
+              - thumbnailRenderer : boolean
+              + RenderService()
+              # createTask()
+              ~ pageProperty()
+              ~ scaleProperty()
+              - getPage()
+              - getScale()
+              - setPage()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin.RenderTask {
+              - page : int
+              - scale : float
+              - thumbnail : boolean
+              + RenderTask()
+              # call()
+              - highlightSearchResults()
+              - renderPDFPage()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin.SearchResultListCell {
+              - imageView : ImageView
+              - matchesLabel : Label
+              - pageLabel : Label
+              - summaryLabel : Label
+              + SearchResultListCell()
+              # updateItem()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin.SearchService {
+              # createTask()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin.SearchService.SearchException {
+              + SearchException()
+          }
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        namespace skins {
+          class OracLib.PDFViewFX.skins.PDFViewSkin.SearchTask {
+              - searchText : String
+              + SearchTask()
+              # call()
+          }
+        }
+      }
+    }
+  }
+  
+
+  OracLib.PDFViewFX.skins.PDFViewSkin -up-|> javafx.scene.control.SkinBase
+  OracLib.PDFViewFX.skins.PDFViewSkin o-- OracLib.PDFViewFX.skins.PDFViewSkin.PagerService : pagerService
+  OracLib.PDFViewFX.skins.PDFViewSkin o-- OracLib.PDFViewFX.skins.PDFViewSkin.SearchService : searchService
+  OracLib.PDFViewFX.skins.PDFViewSkin +-down- OracLib.PDFViewFX.skins.PDFViewSkin.MainAreaScrollPane
+  OracLib.PDFViewFX.skins.PDFViewSkin +-down- OracLib.PDFViewFX.skins.PDFViewSkin.PageSearchResult
+  OracLib.PDFViewFX.skins.PDFViewSkin +-down- OracLib.PDFViewFX.skins.PDFViewSkin.PagerService
+  OracLib.PDFViewFX.skins.PDFViewSkin +-down- OracLib.PDFViewFX.skins.PDFViewSkin.PagerTask
+  OracLib.PDFViewFX.skins.PDFViewSkin +-down- OracLib.PDFViewFX.skins.PDFViewSkin.PdfPageListCell
+  OracLib.PDFViewFX.skins.PDFViewSkin +-down- OracLib.PDFViewFX.skins.PDFViewSkin.RenderService
+  OracLib.PDFViewFX.skins.PDFViewSkin +-down- OracLib.PDFViewFX.skins.PDFViewSkin.RenderTask
+  OracLib.PDFViewFX.skins.PDFViewSkin +-down- OracLib.PDFViewFX.skins.PDFViewSkin.SearchResultListCell
+  OracLib.PDFViewFX.skins.PDFViewSkin +-down- OracLib.PDFViewFX.skins.PDFViewSkin.SearchService
+  OracLib.PDFViewFX.skins.PDFViewSkin +-down- OracLib.PDFViewFX.skins.PDFViewSkin.SearchTask
+  OracLib.PDFViewFX.skins.PDFViewSkin.MainAreaScrollPane -up-|> javafx.scene.control.ScrollPane
+  OracLib.PDFViewFX.skins.PDFViewSkin.MainAreaScrollPane o-- OracLib.PDFViewFX.skins.PDFViewSkin.RenderService : mainAreaRenderService
+  OracLib.PDFViewFX.skins.PDFViewSkin.PageSearchResult .up.|> java.lang.Comparable
+  OracLib.PDFViewFX.skins.PDFViewSkin.PagerService -up-|> javafx.concurrent.Service
+  OracLib.PDFViewFX.skins.PDFViewSkin.PagerTask -up-|> javafx.concurrent.Task
+  OracLib.PDFViewFX.skins.PDFViewSkin.PdfPageListCell -up-|> javafx.scene.control.ListCell
+  OracLib.PDFViewFX.skins.PDFViewSkin.PdfPageListCell o-- OracLib.PDFViewFX.skins.PDFViewSkin.RenderService : renderService
+  OracLib.PDFViewFX.skins.PDFViewSkin.RenderService -up-|> javafx.concurrent.Service
+  OracLib.PDFViewFX.skins.PDFViewSkin.RenderTask -up-|> javafx.concurrent.Task
+  OracLib.PDFViewFX.skins.PDFViewSkin.SearchResultListCell -up-|> javafx.scene.control.ListCell
+  OracLib.PDFViewFX.skins.PDFViewSkin.SearchResultListCell o-- OracLib.PDFViewFX.skins.PDFViewSkin.RenderService : renderService
+  OracLib.PDFViewFX.skins.PDFViewSkin.SearchService -up-|> javafx.concurrent.Service
+  OracLib.PDFViewFX.skins.PDFViewSkin.SearchService +-down- OracLib.PDFViewFX.skins.PDFViewSkin.SearchService.SearchException
+  OracLib.PDFViewFX.skins.PDFViewSkin.SearchTask -up-|> javafx.concurrent.Task
+  OracLib.PDFViewFX.skins.PDFViewSkin.SearchTask o-- OracLib.PDFViewFX.PDFView.SearchableDocument : document
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

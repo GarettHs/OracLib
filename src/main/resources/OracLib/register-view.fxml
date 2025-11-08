@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="781.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OracLib.RegisterController">
+   <center>
+      <AnchorPane fx:id="Anchor" prefHeight="569.0" prefWidth="781.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="registerImage" fitHeight="530.0" fitWidth="781.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/WhiteBG.png" />
+               </image>
+            </ImageView>
+            <MediaView fx:id="mediaView" fitHeight="300.0" fitWidth="300.0" layoutX="55.0" layoutY="162.0" />
+            <Label fx:id="subTitle" alignment="CENTER" layoutX="435.0" layoutY="100.0" prefHeight="32.0" prefWidth="246.0" text="Register to OracLib">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="401.0" layoutY="211.0" prefHeight="32.0" prefWidth="119.0" text="Enter Password:">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="401.0" layoutY="165.0" prefHeight="32.0" prefWidth="126.0" text="Enter Username:">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="401.0" layoutY="260.0" prefHeight="32.0" prefWidth="145.0" text="Re-Enter Password:">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="username" layoutX="558.0" layoutY="166.0" prefHeight="25.0" prefWidth="166.0" />
+            <Button fx:id="registerButton" layoutX="579.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="35.0" prefWidth="124.0" text="Register User">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label fx:id="prompt" alignment="CENTER" layoutX="384.0" layoutY="300.0" prefHeight="25.0" prefWidth="348.0" textFill="#da0c0c">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="exitButton" layoutX="579.0" layoutY="432.0" mnemonicParsing="false" onAction="#onExit" prefHeight="35.0" prefWidth="124.0" text="Exit">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="password" layoutX="558.0" layoutY="214.0" prefHeight="25.0" prefWidth="166.0" />
+            <PasswordField fx:id="rePassword" layoutX="558.0" layoutY="263.0" prefHeight="25.0" prefWidth="166.0" />
+            <ImageView fitHeight="146.0" fitWidth="351.0" layoutX="29.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/oraclib.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="returnButton" layoutX="579.0" layoutY="380.0" mnemonicParsing="false" onAction="#onReturn" prefHeight="35.0" prefWidth="124.0" text="Return to Log-In">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

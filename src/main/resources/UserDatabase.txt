@@ -1,0 +1,6 @@
+Admin,1234,341994002_251450260667616_4708349394510297927_n.png,"Im an admin and i will aboos my power",27,A102,A101,A105,book4,book5
+GarettSosa,HikaruN4R4,113605257_p0.jpg,"I love books",19,A100,book2,book3,book4,book5
+Astral,Express,none,"Trailblazer",19,book1,book2,book3,book4,book5
+ForTesting,5678,none,"I hate pancakes",21,book1,book2,book3,book4,book5
+Tingyun,neck,Tingyun.jpg,"sussy",60,book1,book2,book3,book4,book5
+Teminite,TESTING,teminite.png,I LOVE MAKING EDM MUSIC,28,A100,A104,book3,book4,book5

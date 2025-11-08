@@ -1,0 +1,192 @@
+@startuml
+
+title __PDFVIEWFX's Class Diagram__\n
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        class OracLib.PDFViewFX.PDFBoxDocument {
+            - document : PDDocument
+            + PDFBoxDocument()
+            + PDFBoxDocument()
+            + close()
+            + getNumberOfPages()
+            + getPageable()
+            + getSearchResults()
+            + isLandscape()
+            + renderPage()
+            - calculateMarkerPosition()
+            - calculateTextPositionStartIndex()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        class OracLib.PDFViewFX.PDFView {
+            - cacheThumbnails : BooleanProperty
+            - document : ObjectProperty<Document>
+            - maxZoomFactor : DoubleProperty
+            - page : IntegerProperty
+            - pageRotation : DoubleProperty
+            - pageScale : FloatProperty
+            - searchResultColor : ObjectProperty<Color>
+            - searchResults : ListProperty<SearchResult>
+            - searchText : StringProperty
+            - selectedSearchResult : ObjectProperty<SearchResult>
+            - showAll : BooleanProperty
+            - showSearchResults : BooleanProperty
+            - showThumbnails : BooleanProperty
+            - showToolBar : BooleanProperty
+            - thumbnailPageScale : FloatProperty
+            - thumbnailSize : DoubleProperty
+            - zoomFactor : DoubleProperty
+            + PDFView()
+            + cacheThumbnailsProperty()
+            + documentProperty()
+            + getDocument()
+            + getMaxZoomFactor()
+            + getPage()
+            + getPageRotation()
+            + getPageScale()
+            + getSearchResultColor()
+            + getSearchResults()
+            + getSearchText()
+            + getSelectedSearchResult()
+            + getThumbnailPageScale()
+            + getThumbnailSize()
+            + getUserAgentStylesheet()
+            + getZoomFactor()
+            + gotoLastPage()
+            + gotoNextPage()
+            + gotoPreviousPage()
+            + isCacheThumbnails()
+            + isShowAll()
+            + isShowSearchResults()
+            + isShowThumbnails()
+            + isShowToolBar()
+            + load()
+            + load()
+            + load()
+            + maxZoomFactorProperty()
+            + pageProperty()
+            + pageRotationProperty()
+            + pageScaleProperty()
+            + rotateLeft()
+            + rotateRight()
+            + searchResultColorProperty()
+            + searchResultsProperty()
+            + searchTextProperty()
+            + selectedSearchResultProperty()
+            + setCacheThumbnails()
+            + setDocument()
+            + setMaxZoomFactor()
+            + setPage()
+            + setPageRotation()
+            + setPageScale()
+            + setSearchResultColor()
+            + setSearchResults()
+            + setSearchText()
+            + setSelectedSearchResult()
+            + setShowAll()
+            + setShowSearchResults()
+            + setShowThumbnails()
+            + setShowToolBar()
+            + setThumbnailPageScale()
+            + setThumbnailSize()
+            + setZoomFactor()
+            + showAllProperty()
+            + showSearchResultsProperty()
+            + showThumbnailsProperty()
+            + showToolBarProperty()
+            + thumbnailPageScaleProperty()
+            + thumbnailSizeProperty()
+            + unload()
+            + zoomFactorProperty()
+            # createDefaultSkin()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        interface OracLib.PDFViewFX.PDFView.Document {
+            {abstract} + close()
+            {abstract} + getNumberOfPages()
+            {abstract} + getPageable()
+            {abstract} + isLandscape()
+            {abstract} + renderPage()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        class OracLib.PDFViewFX.PDFView.Document.DocumentProcessingException {
+            + DocumentProcessingException()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        class OracLib.PDFViewFX.PDFView.SearchResult {
+            - marker : Rectangle2D
+            - pageNumber : int
+            - searchText : String
+            - textSnippet : String
+            + SearchResult()
+            + compareTo()
+            + equals()
+            + getMarker()
+            + getPageNumber()
+            + getScaledMarker()
+            + getSearchText()
+            + getTextSnippet()
+            + hashCode()
+        }
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace racLib {
+      namespace PDFViewFX {
+        interface OracLib.PDFViewFX.PDFView.SearchableDocument {
+            {abstract} + getSearchResults()
+        }
+      }
+    }
+  }
+  
+
+  OracLib.PDFViewFX.PDFBoxDocument .up.|> OracLib.PDFViewFX.PDFView.SearchableDocument
+  OracLib.PDFViewFX.PDFView -up-|> javafx.scene.control.Control
+  OracLib.PDFViewFX.PDFView +-down- OracLib.PDFViewFX.PDFView.Document
+  OracLib.PDFViewFX.PDFView +-down- OracLib.PDFViewFX.PDFView.SearchResult
+  OracLib.PDFViewFX.PDFView +-down- OracLib.PDFViewFX.PDFView.SearchableDocument
+  OracLib.PDFViewFX.PDFView.Document +-down- OracLib.PDFViewFX.PDFView.Document.DocumentProcessingException
+  OracLib.PDFViewFX.PDFView.SearchResult .up.|> java.lang.Comparable
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

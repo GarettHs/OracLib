@@ -1,0 +1,431 @@
+@startuml
+
+title __ORACLIB's Class Diagram__\n
+
+    namespace OracLib {
+      class OracLib.AdminViewController {
+          ~ textFormatter : TextFormatter<String>
+          - adminName : String
+          - ageField : TextField
+          - ageLabel : Label
+          - authorField : TextField
+          - bioField : TextField
+          - bioLabel : Label
+          - bookAdminView : AnchorPane
+          - bookAuthorLabel : Label
+          - bookDescriptionLabel : Label
+          - bookGenreLabel : Label
+          - bookImageView : ImageView
+          - bookInfo : List<List<String>>
+          - bookInput : TextField
+          - bookNameLabel : Label
+          - bookSearch : Button
+          - bookYearLabel : Label
+          - codeField : TextField
+          - coverPhotoButton : Button
+          - coverPhotoField : TextField
+          - currentBookCode : String
+          - currentImage : String
+          - currentInputStream : FileInputStream
+          - currentPassword : String
+          - currentUserName : String
+          - deleteBookCodeButton : Button
+          - deleteUserNameButton : Button
+          - descriptionField : TextField
+          - editLabel : Label
+          - genreField : TextField
+          - imageField : TextField
+          - linkField : TextField
+          - nameLabel : Label
+          - passwordField : TextField
+          - pdfFileButton : Button
+          - pdfNameField : TextField
+          - profileInfo : List<List<String>>
+          - profilePicture : Button
+          - saveBookButton : Button
+          - saveBookChanges : Button
+          - saveChangesButton : Button
+          - saveUserButton : Button
+          - stage : Stage
+          - statusChangeLabel : Label
+          - titleField : TextField
+          - userAdminView : AnchorPane
+          - userImageView : ImageView
+          - userInput : TextField
+          - userSearch : Button
+          - usernameField : TextField
+          - yearField : TextField
+          + setMain()
+          + setUsername()
+          - clearBookDisplay()
+          - clearBookFields()
+          - clearUserDisplay()
+          - clearUserFields()
+          - countBooks()
+          - countProfiles()
+          - displayBook()
+          - displayInfo()
+          - handleAddBook()
+          - handleAddUser()
+          - handleBookChanges()
+          - handleBookSearch()
+          - handleCoverPhoto()
+          - handleDelBook()
+          - handleDelUser()
+          - handleDeleteBook()
+          - handleDeleteUser()
+          - handleEditBook()
+          - handleEditUser()
+          - handleNewBook()
+          - handlePDFFile()
+          - handleProfilePicture()
+          - handleReturn()
+          - handleSaveUser()
+          - handleUserChanges()
+          - handleUserSearch()
+          - isBookExists()
+          - isNameExists()
+          - isNotValidString()
+          - loadBooks()
+          - loadProfiles()
+          - modifyBookDatabase()
+          - modifyDatabase()
+          - readDatabase()
+          - saveBookDatabase()
+          - saveDatabase()
+          - showErrorDialog()
+          - updateBook()
+          - updateProfile()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.BaseQuote {
+          # quoteTextArea : Label
+          # closeQuoteView()
+          # initialize()
+          # loadRandomQuote()
+          - readQuotesFromTXT()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.BookProfiles {
+          - book : Books[]
+          - size : int
+          + BookProfiles()
+          + getBook()
+          + getSize()
+          + searchBook()
+          + setBook()
+          + setSize()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.BookViewer {
+          - bookCode : String
+          - chooser : FileChooser
+          - title : String
+          + openBook()
+          + setBook()
+          + setTitle()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.Books {
+          - author : String
+          - bookCode : String
+          - description : String
+          - genre : String
+          - link : String
+          - title : String
+          - yearPublished : String
+          + Books()
+          + getAuthor()
+          + getBookCode()
+          + getDescription()
+          + getGenre()
+          + getLink()
+          + getTitle()
+          + getYearPublished()
+          + setAuthor()
+          + setBookCode()
+          + setDescription()
+          + setGenre()
+          + setLink()
+          + setTitle()
+          + setYearPublished()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.LibraryController {
+          - author : Label
+          - bookCode : String
+          - bookImageView : ImageView
+          - bookTitle : String
+          - description : Label
+          - link : Hyperlink
+          - primaryStage : Stage
+          - title : Label
+          + handlePDF()
+          + setBookCode()
+          + setBookData()
+          + setBookImage()
+          + setBookTitle()
+          + setMain()
+          + setPrimaryStage()
+          - handleFavoriteButton()
+          - readUserProfilesFromTXT()
+          - replaceFirstFavoriteBook()
+          - saveUserProfilesToTXT()
+      }
+    }
+
+    namespace OracLib {
+      interface OracLib.LibraryView {
+          {abstract} + setBookCode()
+          {abstract} + setBookData()
+          {abstract} + setBookImage()
+          {abstract} + setBookTitle()
+          {abstract} + setMain()
+          {abstract} + setPrimaryStage()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.LoginController {
+          - clickCount : int
+          - forgotPass : Button
+          - maxClicks : int
+          - password : PasswordField
+          - prompt : Label
+          - username : TextField
+          + onForgotPass()
+          + setMain()
+          - handleLogin()
+          - handleRegister()
+          - isNotValidString()
+          - isValid()
+          - onExit()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.Main {
+          {static} - clip : Clip
+          {static} - currentUsername : String
+          {static} - window : Stage
+          + getBookProfiles()
+          {static} + getCurrentUsername()
+          + getUserProfiles()
+          {static} + main()
+          + sceneToAdminView()
+          + sceneToLogin()
+          + sceneToMenu()
+          + sceneToProfile()
+          + sceneToRegister()
+          {static} + setCurrentUsername()
+          + start()
+          - countBooks()
+          - countProfiles()
+          - loadBooks()
+          - loadProfiles()
+          - showErrorDialog()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.MainController {
+          + adminViewButton : Button
+          - authorColumn : TableColumn<Books, String>
+          - bookCodeColumn : TableColumn<Books, String>
+          - datePublishedColumn : TableColumn<Books, String>
+          - favAuthorColumn : TableColumn<Books, String>
+          - favBookCodeColumn : TableColumn<Books, String>
+          - favDatePublishedColumn : TableColumn<Books, String>
+          - favGenreColumn : TableColumn<Books, String>
+          - favTitleColumn : TableColumn<Books, String>
+          - favoriteTableView : TableView<Books>
+          - genreColumn : TableColumn<Books, String>
+          - libraryTableView : TableView<Books>
+          - name : String
+          - resetFields : Button
+          - searchBar : TextField
+          - titleColumn : TableColumn<Books, String>
+          - userProfile : ImageView
+          + setMain()
+          + setProfile()
+          - calculateJaccardSimilarity()
+          - getUserBookData()
+          - handleAdminAccess()
+          - handleBookClick()
+          - handleClearReset()
+          - handleFavBookClick()
+          - handleProfile()
+          - handleSearchButton()
+          - initialize()
+          - onLogout()
+          - populateFavTableView()
+          - populateTableView()
+          - readBookDataFromCSV()
+          - retrieveProfilePicture()
+          - showErrorDialog()
+          - showQuoteOfTheDay()
+          - showRandomBook()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.QuoteController {
+          - quoteTextArea : Label
+          # closeQuoteView()
+          # initialize()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.RegisterController {
+          - mediaView : MediaView
+          - password : TextField
+          - prompt : Label
+          - rePassword : TextField
+          - username : TextField
+          + setMain()
+          - handleRegister()
+          - isNameExists()
+          - isNotValidString()
+          - onExit()
+          - onReturn()
+          - showAlert()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.UserData {
+          - age : String
+          - book1 : String
+          - book2 : String
+          - book3 : String
+          - book4 : String
+          - book5 : String
+          - index : int
+          - password : String
+          - profilePic : String
+          - userBio : String
+          - username : String
+          + UserData()
+          + getAge()
+          + getBook1()
+          + getBook2()
+          + getBook3()
+          + getBook4()
+          + getBook5()
+          + getIndex()
+          + getPassword()
+          + getProfilePic()
+          + getUserBio()
+          + getUsername()
+          + setAge()
+          + setBook1()
+          + setBook2()
+          + setBook3()
+          + setBook4()
+          + setBook5()
+          + setPassword()
+          + setProfilePic()
+          + setUserBio()
+          + setUserIndex()
+          + setUsername()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.UserProfileController {
+          - ageButton : Button
+          - ageLabel : Label
+          - bioButton : Button
+          - bioLabel : Label
+          - currentUserName : String
+          - editMode : Label
+          - favAuthorColumn : TableColumn<Books, String>
+          - favBookCodeColumn : TableColumn<Books, String>
+          - favDatePublishedColumn : TableColumn<Books, String>
+          - favGenreColumn : TableColumn<Books, String>
+          - favTitleColumn : TableColumn<Books, String>
+          - favoriteTableView : TableView<Books>
+          - inputAge : TextField
+          - inputBio : TextField
+          - inputUsername : TextField
+          - nameButton : Button
+          - nameLabel : Label
+          - pictureView : ImageView
+          - profileInfo : List<List<String>>
+          - profilePicButton : Button
+          - stage : Stage
+          - statusLabel : Label
+          - username : String
+          + displayInfo()
+          + handleAccountEdit()
+          + handleAgeChange()
+          + handleBioChange()
+          + handleNameChange()
+          + handleProfilePicChange()
+          + setMain()
+          + setStage()
+          + setUsername()
+          - getUserBookData()
+          - handleFavBookClick()
+          - handleReturn()
+          - isValid()
+          - modifyProfile()
+          - passwordConfirmation()
+          - populateFavTableView()
+          - readDatabase()
+          - saveProfile()
+          - showErrorDialog()
+          - updateProfile()
+      }
+    }
+
+    namespace OracLib {
+      class OracLib.UserProfiles {
+          - users : List<UserData>
+          + UserProfiles()
+          + addUser()
+          + getUser()
+          + getUsers()
+          + searchUser()
+          + setUsers()
+      }
+    }
+
+  
+
+  OracLib.AdminViewController o-- OracLib.BookProfiles : bookProfiles
+  OracLib.AdminViewController o-- OracLib.Main : main
+  OracLib.AdminViewController o-- OracLib.UserProfiles : userProfiles
+  OracLib.BookViewer o-- OracLib.Main : main
+  OracLib.LibraryController .up.|> OracLib.LibraryView
+  OracLib.LibraryController o-- OracLib.Main : main
+  OracLib.LoginController o-- OracLib.Main : main
+  OracLib.Main -up-|> javafx.application.Application
+  OracLib.Main o-- OracLib.BookProfiles : bookProfiles
+  OracLib.Main o-- OracLib.UserProfiles : userProfiles
+  OracLib.MainController o-- OracLib.Main : main
+  OracLib.QuoteController -up-|> OracLib.BaseQuote
+  OracLib.RegisterController o-- OracLib.Main : main
+  OracLib.UserProfileController o-- OracLib.Main : main
+  OracLib.UserProfileController o-- OracLib.UserProfiles : userProfiles
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
